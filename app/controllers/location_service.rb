@@ -13,4 +13,10 @@ class LocationService
     binding.pry
   end
 
+  def get_data
+    @conn = connection
+    @conn.get("/api/alt-fuel-stations/v1/nearest?format=json&api_key=#{ENV['nrel_key']}")
+    binding.pry
+  end
+
 end

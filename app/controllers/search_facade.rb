@@ -17,7 +17,7 @@ class SearchFacade
     location_to_search = @location
     # binding.pry
     results = LocationService.new(location_to_search)
-    results = results.connection
+    results = results.get_data
   end
 
 end
