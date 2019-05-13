@@ -7,8 +7,8 @@ class SearchFacade
 
   def locations
     binding.pry
-    location_results.map do |location|
-      Location.new(location)
+    location_results["fuel_stations"].map do |ouptut|
+      Location.new(output)
     end
   end
 
@@ -16,9 +16,9 @@ class SearchFacade
 
   def location_results
     location_to_search = @location
-    # binding.pry
     results = LocationService.new(location_to_search)
-    results = results.get_data
+    results_in_json = results.get_data
+    results_in_json
     # binding.pry
   end
 
