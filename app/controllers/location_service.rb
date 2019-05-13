@@ -15,9 +15,9 @@ class LocationService
 
   def get_data
     @conn = connection
-    results = @conn.get("/api/alt-fuel-stations/v1/nearest?format=json&api_key=f7bQ5VZkpwcU0F8lYJmx0fYUmSVKU0GSk8GgRH4o&location=80206")
+    results = @conn.get("/api/alt-fuel-stations/v1/nearest?format=json&api_key=f7bQ5VZkpwcU0F8lYJmx0fYUmSVKU0GSk8GgRH4o&location=80206&status=E&access=public&fuel_type=ELEC,LPG")
     results = JSON.parse(results.body)
-    binding.pry
+    # binding.pry
   end
 
 end

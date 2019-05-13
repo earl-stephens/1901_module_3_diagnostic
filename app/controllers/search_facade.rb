@@ -6,6 +6,7 @@ class SearchFacade
   end
 
   def locations
+    binding.pry
     location_results.map do |location|
       Location.new(location)
     end
@@ -18,6 +19,7 @@ class SearchFacade
     # binding.pry
     results = LocationService.new(location_to_search)
     results = results.get_data
+    # binding.pry
   end
 
 end
