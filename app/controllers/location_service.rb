@@ -6,16 +6,17 @@ class LocationService
   end
 
   def connection
-    conn = Faraday.new(url: 'https://developer.nrel.gov/api/alt-fuel-stations/v1') do |faraday|
-      faraday.headers["X-api_key"] = ENV['nrel_key']
+    conn = Faraday.new(url: "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=f7bQ5VZkpwcU0F8lYJmx0fYUmSVKU0GSk8GgRH4o") do |faraday|
+      # faraday.headers["X-api_key"] = ENV['nrel_key']
       faraday.adapter Faraday.default_adapter
     end
-    binding.pry
+    # binding.pry
   end
 
   def get_data
     @conn = connection
-    @conn.get("/api/alt-fuel-stations/v1/nearest?format=json&api_key=#{ENV['nrel_key']}")
+    results = @conn.get("/api/alt-fuel-stations/v1/nearest?format=json&api_key=f7bQ5VZkpwcU0F8lYJmx0fYUmSVKU0GSk8GgRH4o&location=80206")
+    results = JSON.parse(results.body)
     binding.pry
   end
 
